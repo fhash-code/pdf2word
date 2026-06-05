@@ -13,26 +13,30 @@ jobs:
     runs-on: windows-latest
     
     steps:
-      - name: Get code
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          architecture: 'x64'
 
-      - name: Install libraries
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyinstaller pywin32 qrcode pillow requests packaging
+          pip install pyinstaller
+          pip install pywin32
+          pip install qrcode
+          pip install pillow
+          pip install requests
+          pip install packaging
 
-      - name: Build EXE
+      - name: Build with PyInstaller
         run: |
-          pyinstaller --onefile --windowed --name "PDF2Word" pdf2word.py
+          pyinstaller --onefile --name "PDF2Word" pdf2word.py
 
-      - name: Upload to Release
+      - name: Upload EXE to Release
         uses: softprops/action-gh-release@v2
         with:
           files: dist/PDF2Word.exe
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
