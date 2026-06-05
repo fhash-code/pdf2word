@@ -30,10 +30,11 @@ jobs:
         pip install pillow
         pip install requests
         pip install packaging
+        pip install pyperclip
 
     - name: Build with PyInstaller
       run: |
-        pyinstaller --onefile --name "PDF2Word" pdf2word.py
+        pyinstaller --onefile --name "PDF2Word" --hidden-import=pyperclip --hidden-import=win32com --hidden-import=win32com.client --hidden-import=qrcode --hidden-import=PIL --hidden-import=requests --hidden-import=packaging pdf2word.py
 
     - name: Upload EXE to Release
       uses: softprops/action-gh-release@v2
