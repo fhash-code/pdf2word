@@ -3,7 +3,7 @@ PDF2Word - PDF to Word Converter
 **Convert PDF files to Word documents while preserving the original layout, tables, and fonts.**
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Windows](https://img.shields.io/badge/Platform-Windows-0078d7.svg)](https://www.microsoft.com/windows)
-![GitHub Releases](https://img.shields.io/github/downloads/fhash-code/pdf2word/total)
+
 
 A modern, offline, and free tool to convert your PDF files into editable Word documents without sending your data to any server.
 
